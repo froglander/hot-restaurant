@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Star Wars - Express</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron">
+			<a href="/"><h1>Star Wars Express</h1></a>
+			<h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+			<hr>
+			<a href="/add"><button type="button" class="btn btn-danger btn-lg">
+			<span class="glyphicon glyphicon-plus"></span> Add New Character</button></a>
+
+			<a href="/all"><button type="button" class="btn btn-success btn-lg" id="viewAll">
+			<span class="glyphicon glyphicon-th-list"></span> View All Reservations</button></a>
+
+		</div>	
+
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">All Reservations</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<thead>						
+						<tr>							
+							<th>Reservation ID</th>
+							<th>Name</th>
+							<th>Phone</th>
+							<th>Email</th>
+							<th>Number in party</th>
+						</tr>
+					</thead>
+					<tbody id="resRows">
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$.get('/api')
+		.done(function(data) {
+			console.log(data);
+
+			for (var i = 0; i < data.length; i++) {
+				var $resBody = $('#resRows');
+				
+				var $resRow = $('<tr>');
+
+				var $resID = $('<td>').html(data[i].reservation_id).appendTo($resRow);
+				var $resName = $('<td>').html(data[i].name).appendTo($resRow);
+				var $phone = $('<td>').html(data[i].phone).appendTo($resRow);
+				var $email = $('<td>').html(data[i].email).appendTo($resRow);
+				var $num_in_party = $('<td>').html(data[i].num_in_party).appendTo($resRow);
+				$resRow.appendTo($resBody);
+
+				console.log(data[i].reservation_id);
+				console.log(data[i].name);
+				console.log(data[i].phone);
+				console.log(data[i].email);
+				console.log(data[i].num_in_party);
+			}
+		});
+	})
+	
+
+
+		
+	</script>
+</body>
+</html>
