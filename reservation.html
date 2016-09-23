@@ -86,7 +86,7 @@
 			$.post('http://localhost:3000/api/new', newreservation)
 				.done(function (data) {
 					console.log(data);
-					window.location('/list');
+					window.location.href = '/list';
 				});
 			
 		});

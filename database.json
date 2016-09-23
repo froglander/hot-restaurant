@@ -1,32 +1,76 @@
 {
     "data": [
         {
+            "name": "Name1",
+            "email": "email@email.com",
+            "phone": "34234",
+            "guest": "1",
+            "reservation_id": 1,
+            "waitlist": false
+        },
+        {
+            "name": "Name2",
+            "email": "email@email.com",
+            "phone": "1234321",
+            "guest": "2",
             "reservation_id": 2,
-            "name": "Bob",
-            "phone": "1234567890",
-            "email": "email@email.com",
-            "guest": "3"
+            "waitlist": false
         },
         {
-            "name": "Bob",
-            "phone": "1234567890",
+            "name": "Name3",
             "email": "email@email.com",
+            "phone": "34513252435",
             "guest": "3",
-            "reservation_id": 1
+            "reservation_id": 3,
+            "waitlist": false
         },
         {
-            "name": "Bob",
-            "phone": "1234567890",
+            "name": "Name4",
             "email": "email@email.com",
-            "guest": "3",
-            "reservation_id": 4
+            "phone": "32452345623465",
+            "guest": "4",
+            "reservation_id": 4,
+            "waitlist": false
         },
         {
-            "name": "Bob",
-            "phone": "1234567890",
+            "name": "Name5",
             "email": "email@email.com",
+            "phone": "2535435",
+            "guest": "5",
+            "reservation_id": 5,
+            "waitlist": false
+        },
+        {
+            "name": "Name6",
+            "email": "email@email.com",
+            "phone": "34523453245",
+            "guest": "6",
+            "reservation_id": 6,
+            "waitlist": true
+        },
+        {
+            "name": "Name7",
+            "email": "email@email.com",
+            "phone": "234234324",
+            "guest": "7",
+            "reservation_id": 7,
+            "waitlist": true
+        },
+        {
+            "name": "Jim Bob",
+            "email": "georgewBush@aol.com",
+            "phone": "911",
+            "guest": "foo",
+            "reservation_id": 8,
+            "waitlist": true
+        },
+        {
+            "name": "name8",
+            "email": "email@email.com",
+            "phone": "2343423",
             "guest": "3",
-            "reservation_id": 5
+            "reservation_id": 9,
+            "waitlist": true
         }
     ]
 }

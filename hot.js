@@ -44,8 +44,7 @@ app.get('/list', function (req, res) {
 
 // Search for Specific Character (or all characters) - provides JSON
 app.get('/api', function (req, res) {
-	res.json(reservationData);
-	console.log(reservationData.data.length);
+	res.json(reservationData);	
 });
 
 // Create New reservation - takes in JSON input
@@ -55,6 +54,14 @@ app.post('/api/new', function (req, res) {
 	var newreservation = req.body;
 	
 	newreservation.reservation_id = reservationData.data.length+1;
+
+
+	if(parseInt(newreservation.reservation_id) > 5) {
+		newreservation.waitlist = true;
+	} else {
+		newreservation.waitlist = false;
+	}
+
 
 	reservationData.data.push(newreservation);
 
