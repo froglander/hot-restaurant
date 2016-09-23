@@ -17,8 +17,14 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 var dataFile = "database.json";
 
-var reservationData = JSON.parse(fs.readFileSync(dataFile, 'utf8'));
 
+try {
+    var reservationData = JSON.parse(fs.readFileSync(dataFile, 'utf8'));
+}
+catch(err) {
+	// File doesn't exit so create object	
+    var reservationData =  {data:[]};
+}
 
 // Routes
 // =============================================================
@@ -39,8 +45,28 @@ app.get('/list', function (req, res) {
 // Search for Specific Character (or all characters) - provides JSON
 app.get('/api', function (req, res) {
 	res.json(reservationData);
+	console.log(reservationData.data.length);
 });
 
+// Create New reservation - takes in JSON input
+app.post('/api/new', function (req, res) {
+	if(!req.body) return res.end();
+
+	var newreservation = req.body;
+	
+	newreservation.reservation_id = reservationData.data.length+1;
+
+	reservationData.data.push(newreservation);
+
+	fs.writeFile(dataFile, JSON.stringify(reservationData, null, 4), function(err) {
+		if(err) {
+			return console.log(err);
+		}
+	});
+
+
+	res.json(newreservation);
+});
 
 
 // Starts the server to begin listening

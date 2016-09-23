@@ -44,7 +44,6 @@
 							<th>Phone</th>
 							<th>Email</th>
 							<th>Number in party</th>
-							<th>Waitlist</th>
 						</tr>
 					</thead>
 					<tbody id="currentRows">
@@ -65,7 +64,6 @@
 							<th>Phone</th>
 							<th>Email</th>
 							<th>Number in party</th>
-							<th>Waitlist</th>
 						</tr>
 					</thead>
 					<tbody id="waitlistRows">
@@ -90,7 +88,7 @@
 					var $resName = $('<td>').html(reservation[i].name).appendTo($resRow);
 					var $phone = $('<td>').html(reservation[i].phone).appendTo($resRow);
 					var $email = $('<td>').html(reservation[i].email).appendTo($resRow);
-					var $num_in_party = $('<td>').html(reservation[i].num_in_party).appendTo($resRow);
+					var $num_in_party = $('<td>').html(reservation[i].guest).appendTo($resRow);
 					
 					$resRow.appendTo($resBody);
 				} else {
@@ -100,7 +98,7 @@
 					var $resName = $('<td>').html(reservation[i].name).appendTo($resRow);
 					var $phone = $('<td>').html(reservation[i].phone).appendTo($resRow);
 					var $email = $('<td>').html(reservation[i].email).appendTo($resRow);
-					var $num_in_party = $('<td>').html(reservation[i].num_in_party).appendTo($resRow);
+					var $num_in_party = $('<td>').html(reservation[i].guest).appendTo($resRow);
 					
 					$resRow.appendTo($resBody);
 				}				
