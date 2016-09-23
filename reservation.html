@@ -65,7 +65,7 @@
 						</form>
 						<br>
 						<div class="text-right">
-							<button type="submit" class="btn btn-primary btn-md" id="addBtn"></span><span class="glyphicon glyphicon-ok"></span> Confirm Reservation</button>
+							<button type="submit" class="btn btn-primary btn-md" id="addBtn"</span><span class="glyphicon glyphicon-ok"></span> Confirm Reservation</button>
 						</div>
 					</div>
 				</div>
@@ -75,21 +75,20 @@
 	</div>
 
 		<script type="text/javascript">
-		// Question: What does this code do?
 		$('#addBtn').on('click', function () {
 			var newreservation = {
+
 				name: $('#name').val().trim(),
 				email: $('#email').val().trim(),
 				phone: $('#phone').val().trim(),
 				guest: $('#guest').val().trim(),
 			};
-
-			// Question: What does this code do??
 			$.post('http://localhost:3000/api/new', newreservation)
 				.done(function (data) {
 					console.log(data);
+					window.location('/list');
 				});
-			return false;
+			
 		});
 	</script>
 
