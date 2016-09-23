@@ -86,7 +86,11 @@
 			$.post('http://localhost:3000/api/new', newreservation)
 				.done(function (data) {
 					console.log(data);
-					window.location.href = '/list';
+					if(data.waitlist){
+						window.location.href = '/list#waitlist';
+					} else {
+						window.location.href = '/list#seated';
+					}
 				});
 			
 		});

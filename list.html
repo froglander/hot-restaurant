@@ -23,6 +23,12 @@
 </head>
 <body>
 
+<div class="alert hidden alert-info" id="waitlistMsg">
+	<p>Bummer, waitlist</p>
+</div>
+<div class="alert hidden alert-success" id="seatedMsg">
+	<p>Hooray! You got a reservation</p>
+</div>
 	<div class="container">
 		<div class="jumbotron text-center">
 			<h1>Hot Restaurant</h1>
@@ -74,7 +80,21 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function() {
+		$(document).ready(function() {
+
+		if(window.location.hash == '#waitlist') {
+			$('#waitlistMsg').removeClass("hidden").fadeIn();
+			setTimeout(function(){
+				$('#waitlistMsg').fadeOut();
+			}, 1000);
+		}
+		if(window.location.hash == '#seated') {
+			$('#seatedMsg').removeClass("hidden").fadeIn();
+			setTimeout(function(){
+				$('#seatedMsg').fadeOut();
+			}, 1000);
+		}
+
 		$.get('/api')
 		.done(function(data) {
 			console.log(data);

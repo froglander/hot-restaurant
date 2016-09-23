@@ -79,6 +79,37 @@
             "guest": "4",
             "reservation_id": 10,
             "waitlist": true
+        },
+        {
+            "name": "Bob",
+            "phone": "1234567890",
+            "email": "email@email.com",
+            "guest": "3",
+            "reservation_id": 11
+        },
+        {
+            "name": "Bob",
+            "phone": "1234567890",
+            "email": "email@email.com",
+            "guest": "3",
+            "reservation_id": 12,
+            "waitlist": true
+        },
+        {
+            "name": "Bob",
+            "phone": "1234567890",
+            "email": "email@email.com",
+            "guest": "3",
+            "reservation_id": 13,
+            "waitlist": true
+        },
+        {
+            "name": "Bob Smith",
+            "email": "",
+            "phone": "",
+            "guest": "",
+            "reservation_id": 14,
+            "waitlist": true
         }
     ]
 }
