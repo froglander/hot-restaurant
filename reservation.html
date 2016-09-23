@@ -73,5 +73,25 @@
 			</div>
 		</div>
 	</div>
+
+		<script type="text/javascript">
+		// Question: What does this code do?
+		$('#addBtn').on('click', function () {
+			var newreservation = {
+				name: $('#name').val().trim(),
+				email: $('#email').val().trim(),
+				phone: $('#phone').val().trim(),
+				guest: $('#guest').val().trim(),
+			};
+
+			// Question: What does this code do??
+			$.post('http://localhost:3000/api/new', newreservation)
+				.done(function (data) {
+					console.log(data);
+				});
+			return false;
+		});
+	</script>
+
 </body>
 </html>
