@@ -3,6 +3,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var fs = require('fs');
 
 // Sets up the Express App
 // =============================================================
@@ -14,22 +15,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+var dataFile = "database.json";
 
-// Star Wars Characters (DATA)
-// =============================================================
-// var reservations = [{
-// 	"reservation_id": 1,
-// 	"name": "Name1",
-// 	"email": "email@email.com",
-// 	"phone": "123-456-7890",
-// 	"num_in_party": 2
-// },{
-// 	"reservation_id": 2,
-// 	"name": "Name2",
-// 	"email": "email@email.com",
-// 	"phone": "123-456-7890",
-// 	"num_in_party": 2
-// }];
+var reservationData = JSON.parse(fs.readFileSync(dataFile, 'utf8'));
+
 
 // Routes
 // =============================================================
@@ -48,39 +37,15 @@ app.get('/list', function (req, res) {
 });
 
 // Search for Specific Character (or all characters) - provides JSON
-app.get('/api/:reservations?', function (req, res) {
-	var chosen = req.params.reservations;
-
-	if (chosen) {
-		console.log(chosen);
-
-		for (var i = 0; i < reservations.length; i++) {
-			if (chosen === reservations[i].routeName) {
-				res.json(reservations[i]);
-				return;
-			}
-		}
-
-		res.json(false);
-	} else {
-		res.json(reservations);
-	}
+app.get('/api', function (req, res) {
+	res.json(reservationData);
 });
 
-// Create New Characters - takes in JSON input
-app.post('/api/new', function (req, res) {
-	var newcharacter = req.body;
-	newcharacter.routeName = newcharacter.name.replace(/\s+/g, '').toLowerCase();
 
-	console.log(newcharacter);
-
-	characters.push(newcharacter);
-
-	res.json(newcharacter);
-});
 
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function () {
 	console.log('App listening on PORT ' + PORT);
 });
+
