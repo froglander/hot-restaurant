@@ -62,6 +62,7 @@ app.post('/api/new', function (req, res) {
 		newreservation.waitlist = false;
 	}
 
+	//console.log("Waitlist?", newreservation.waitlist);
 
 	reservationData.data.push(newreservation);
 

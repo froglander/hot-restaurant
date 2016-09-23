@@ -71,6 +71,14 @@
             "guest": "3",
             "reservation_id": 9,
             "waitlist": true
+        },
+        {
+            "name": "Jim Bob",
+            "email": "email@email.com",
+            "phone": "123434346345",
+            "guest": "4",
+            "reservation_id": 10,
+            "waitlist": true
         }
     ]
 }
